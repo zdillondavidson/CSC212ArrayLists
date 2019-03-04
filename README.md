@@ -42,8 +42,9 @@ Prefer the most precise error: ``EmptyListError`` rather than a ``BadIndexError`
 
 Right now, when I run all the tests in this project, I get the following output:
 
-    
+```
 Tests run: 142, Failures: 0, Errors: 90, Skipped: 0
+```
 
 So there are 52 passing tests, and 90 failing tests.
 

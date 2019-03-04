@@ -19,7 +19,7 @@ public abstract class ListADT<T> ... {
   public T getBack();
   public T getIndex(int index);
   
-  public void getIndex(int index);
+  public void setIndex(int index, T value);
 
   public int size();
   public boolean isEmpty();

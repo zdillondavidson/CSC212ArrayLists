@@ -59,19 +59,19 @@ Your score on this assignment will range up to 100 -- the fraction of the tests 
 There are TODOErr methods in:
 
 Start with ``FixedSizeList``.
-- (2) src/main/java/edu/smith/cs/csc212/adtr/real/FixedSizeList.java
+- (2) ``src/main/java/edu/smith/cs/csc212/adtr/real/FixedSizeList.java``
 
 Then, work to complete ``GrowableList`` which is an ArrayList implementation based on ``FixedSizeList`` but it needs a resizeArray method to be completed.
-- (4) src/main/java/edu/smith/cs/csc212/adtr/real/GrowableList.java
+- (4) ``src/main/java/edu/smith/cs/csc212/adtr/real/GrowableList.java``
 
 Then, work on ``SinglyLinkedList``: This will be very hard if you are unwilling to draw pictures.
-- (9) src/main/java/edu/smith/cs/csc212/adtr/real/SinglyLinkedList.java
+- (9) ``src/main/java/edu/smith/cs/csc212/adtr/real/SinglyLinkedList.java``
 
 Then, work on ``DoublyLinkedList``: Some methods will be just like SinglyLinkedList (front methods) and some will be very different.
-- (12) src/main/java/edu/smith/cs/csc212/adtr/real/DoublyLinkedList.java
+- (12) ``src/main/java/edu/smith/cs/csc212/adtr/real/DoublyLinkedList.java``
 
 Then, work on ``ChunkyArrayList``: This data structure is very different from the others, because it uses GrowableList and FixedSizeList to make another.
-- (9) src/main/java/edu/smith/cs/csc212/adtr/real/ChunkyArrayList.java
+- (9) ``src/main/java/edu/smith/cs/csc212/adtr/real/ChunkyArrayList.java``
 
 
 

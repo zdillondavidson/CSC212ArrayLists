@@ -1,9 +1,9 @@
-package edu.smith.cs.csc212.adtr.real;
+package edu.smith.cs.csc212.lists;
 
-import edu.smith.cs.csc212.adtr.ListADT;
-import edu.smith.cs.csc212.adtr.errors.BadIndexError;
-import edu.smith.cs.csc212.adtr.errors.EmptyListError;
-import edu.smith.cs.csc212.adtr.errors.TODOErr;
+import me.jjfoley.adt.ListADT;
+import me.jjfoley.adt.errors.BadIndexError;
+import me.jjfoley.adt.errors.EmptyListError;
+import me.jjfoley.adt.errors.TODOErr;
 
 /**
  * This is a data structure that has an array inside each node of an ArrayList.
@@ -14,9 +14,19 @@ import edu.smith.cs.csc212.adtr.errors.TODOErr;
  * @param <T> - the type of item stored in the list.
  */
 public class ChunkyArrayList<T> extends ListADT<T> {
+	/**
+	 * How big is each chunk?
+	 */
 	private int chunkSize;
+	/**
+	 * Where do the chunks go?
+	 */
 	private GrowableList<FixedSizeList<T>> chunks;
 
+	/**
+	 * Create a ChunkedArrayList with a specific chunk-size.
+	 * @param chunkSize - how many items to store per node in this list.
+	 */
 	public ChunkyArrayList(int chunkSize) {
 		this.chunkSize = chunkSize;
 		chunks = new GrowableList<>();

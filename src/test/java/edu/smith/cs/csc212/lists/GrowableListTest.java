@@ -1,4 +1,4 @@
-package edu.smith.cs.csc212.adtr;
+package edu.smith.cs.csc212.lists;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,20 +8,19 @@ import java.util.Random;
 import org.junit.Assert;
 import org.junit.Test;
 
-import edu.smith.cs.csc212.adtr.errors.BadIndexError;
-import edu.smith.cs.csc212.adtr.errors.EmptyListError;
-import edu.smith.cs.csc212.adtr.real.ChunkyArrayList;
-import edu.smith.cs.csc212.adtr.real.GrowableList;
+import me.jjfoley.adt.ListADT;
+import me.jjfoley.adt.errors.BadIndexError;
+import me.jjfoley.adt.errors.EmptyListError;
 
-
-public class ChunkyArrayListTest {
+@SuppressWarnings("javadoc")
+public class GrowableListTest {
 	
 	/**
 	 * Make a new empty list.
 	 * @return an empty list to be tested.
 	 */
 	private <T> ListADT<T> makeEmptyList() {
-		return new ChunkyArrayList<>(3);
+		return new GrowableList<>();
 	}
 	
 	/**

@@ -1,16 +1,16 @@
-package edu.smith.cs.csc212.adtr;
-
-import org.junit.Test;
-
-import edu.smith.cs.csc212.adtr.errors.BadIndexError;
-import edu.smith.cs.csc212.adtr.errors.EmptyListError;
-import edu.smith.cs.csc212.adtr.errors.RanOutOfSpaceError;
-import edu.smith.cs.csc212.adtr.real.FixedSizeList;
+package edu.smith.cs.csc212.lists;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Assert;
+import org.junit.Test;
 
+import me.jjfoley.adt.ListADT;
+import me.jjfoley.adt.errors.BadIndexError;
+import me.jjfoley.adt.errors.EmptyListError;
+import me.jjfoley.adt.errors.RanOutOfSpaceError;
+
+@SuppressWarnings("javadoc")
 public class FixedSizeListTest {
 		
 	@Test

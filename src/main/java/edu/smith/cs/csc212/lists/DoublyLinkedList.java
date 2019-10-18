@@ -1,12 +1,22 @@
-package edu.smith.cs.csc212.adtr.real;
+package edu.smith.cs.csc212.lists;
 
-import edu.smith.cs.csc212.adtr.ListADT;
-import edu.smith.cs.csc212.adtr.errors.BadIndexError;
-import edu.smith.cs.csc212.adtr.errors.TODOErr;
+import me.jjfoley.adt.ListADT;
+import me.jjfoley.adt.errors.TODOErr;
 
-
+/**
+ * A Doubly-Linked List is a list based on nodes that know of their successor and predecessor.
+ * @author jfoley
+ *
+ * @param <T>
+ */
 public class DoublyLinkedList<T> extends ListADT<T> {
+	/**
+	 * This is a reference to the first node in this list.
+	 */
 	private Node<T> start;
+	/**
+	 * This is a reference to the last node in this list.
+	 */
 	private Node<T> end;
 	
 	/**

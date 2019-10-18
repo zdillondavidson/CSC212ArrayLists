@@ -1,6 +1,6 @@
-package edu.smith.cs.csc212.adtr;
+package edu.smith.cs.csc212.lists;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -8,20 +8,19 @@ import java.util.Random;
 import org.junit.Assert;
 import org.junit.Test;
 
-import edu.smith.cs.csc212.adtr.errors.BadIndexError;
-import edu.smith.cs.csc212.adtr.errors.EmptyListError;
-import edu.smith.cs.csc212.adtr.real.GrowableList;
-import edu.smith.cs.csc212.adtr.real.SinglyLinkedList;
+import me.jjfoley.adt.ListADT;
+import me.jjfoley.adt.errors.BadIndexError;
+import me.jjfoley.adt.errors.EmptyListError;
 
-
-public class SinglyLinkedListTest {
+@SuppressWarnings("javadoc")
+public class DoublyLinkedListTest {
 	
 	/**
 	 * Make a new empty list.
 	 * @return an empty list to be tested.
 	 */
 	private <T> ListADT<T> makeEmptyList() {
-		return new SinglyLinkedList<>();
+		return new DoublyLinkedList<>();
 	}
 	
 	/**
@@ -30,10 +29,10 @@ public class SinglyLinkedListTest {
 	 */
 	private ListADT<String> makeABCDList() {
 		ListADT<String> data = makeEmptyList();
-		data.addFront("d");
-		data.addFront("c");
-		data.addFront("b");
-		data.addFront("a");
+		data.addBack("a");
+		data.addBack("b");
+		data.addBack("c");
+		data.addBack("d");
 		return data;
 	}
 		

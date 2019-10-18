@@ -1,16 +1,23 @@
-package edu.smith.cs.csc212.adtr.real;
+package edu.smith.cs.csc212.lists;
 
-import edu.smith.cs.csc212.adtr.ListADT;
-import edu.smith.cs.csc212.adtr.errors.BadIndexError;
-import edu.smith.cs.csc212.adtr.errors.TODOErr;
+import me.jjfoley.adt.ListADT;
+import me.jjfoley.adt.errors.BadIndexError;
+import me.jjfoley.adt.errors.TODOErr;
 
+/**
+ * A Singly-Linked List is a list that has only knowledge of its very first
+ * element. Elements after that are chained, ending with a null node.
+ * 
+ * @author jfoley
+ *
+ * @param <T> - the type of the item stored in this list.
+ */
 public class SinglyLinkedList<T> extends ListADT<T> {
 	/**
-	 * The start of this list.
-	 * Node is defined at the bottom of this file.
+	 * The start of this list. Node is defined at the bottom of this file.
 	 */
 	Node<T> start;
-	
+
 	@Override
 	public T removeFront() {
 		checkNotEmpty();
@@ -41,9 +48,7 @@ public class SinglyLinkedList<T> extends ListADT<T> {
 	public void addIndex(int index, T item) {
 		throw new TODOErr();
 	}
-	
-	
-	
+
 	@Override
 	public T getFront() {
 		checkNotEmpty();
@@ -67,7 +72,6 @@ public class SinglyLinkedList<T> extends ListADT<T> {
 		}
 		throw new BadIndexError(index);
 	}
-	
 
 	@Override
 	public void setIndex(int index, T value) {
@@ -88,10 +92,11 @@ public class SinglyLinkedList<T> extends ListADT<T> {
 	public boolean isEmpty() {
 		return this.start == null;
 	}
-	
+
 	/**
-	 * The node on any linked list should not be exposed.
-	 * Static means we don't need a "this" of SinglyLinkedList to make a node.
+	 * The node on any linked list should not be exposed. Static means we don't need
+	 * a "this" of SinglyLinkedList to make a node.
+	 * 
 	 * @param <T> the type of the values stored.
 	 */
 	private static class Node<T> {
@@ -103,9 +108,12 @@ public class SinglyLinkedList<T> extends ListADT<T> {
 		 * What value is stored in this node?
 		 */
 		public T value;
+
 		/**
 		 * Create a node with no friends.
+		 * 
 		 * @param value - the value to put in it.
+		 * @param next - the successor to this node.
 		 */
 		public Node(T value, Node<T> next) {
 			this.value = value;

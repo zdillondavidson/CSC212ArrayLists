@@ -3,6 +3,8 @@ List Data Structures via Testing
 
 ### ListADT Methods to implement
 
+[Online Javadoc](https://javadoc.jitpack.io/com/github/jjfiv/CSC212ADT/1.1/javadoc/index.html)
+
 ```java
 public abstract class ListADT<T> ... {
   ...
@@ -38,17 +40,21 @@ I provide errors for:
 
 Prefer the most precise error: ``EmptyListError`` rather than a ``BadIndexError`` when looking for the 5th thing in an empty list.
 
+## No reflection or form this week.
+
+This assignment is purely graded on test accuracy.
+
 ## Rubric (100)
 
 Right now, when I run all the tests in this project, I get the following output:
 
 ```
-Tests run: 142, Failures: 0, Errors: 90, Skipped: 0
+Tests run: 142, Failures: 0, Errors: 108, Skipped: 0
 ```
 
-So there are 52 passing tests, and 90 failing tests.
+So there are 34 passing tests, and 108 failing tests.
 
-Your score on this assignment will range up to 100 -- the fraction of the tests that pass on your code (minus the tests that already pass), provided:
+Your score on this assignment will range up to 100% -- the fraction of the tests that pass on your code (minus the tests that already pass), provided:
 
  1. there are no code compilation problems with your code (red lines or Problems in Eclipse).  
  2. you do not rename any methods or modify the tests in any way, and 
@@ -59,15 +65,16 @@ Your score on this assignment will range up to 100 -- the fraction of the tests 
 There are TODOErr methods in:
 
 Start with ``FixedSizeList``.
-- (2) ``src/main/java/edu/smith/cs/csc212/adtr/real/FixedSizeList.java``
+- (6) ``src/main/java/edu/smith/cs/csc212/adtr/real/FixedSizeList.java``
+- The challenges here are removeIndex (need to slide elements to the left) and addIndex (need to slide elements to the right).
 
-Then, work to complete ``GrowableList`` which is an ArrayList implementation based on ``FixedSizeList`` but it needs a resizeArray method to be completed.
+Then, work to complete ``GrowableList`` which is an ArrayList implementation based on ``FixedSizeList`` (literally most of the methods are exactly the same) but it needs a resizeArray method to be completed.
 - (4) ``src/main/java/edu/smith/cs/csc212/adtr/real/GrowableList.java``
 
-Then, work on ``SinglyLinkedList``: This will be very hard if you are unwilling to draw pictures.
+Then, work on ``SinglyLinkedList``: This will be very hard if you do not draw pictures.
 - (9) ``src/main/java/edu/smith/cs/csc212/adtr/real/SinglyLinkedList.java``
 
-Then, work on ``DoublyLinkedList``: Some methods will be just like SinglyLinkedList (front methods) and some will be very different.
+Then, work on ``DoublyLinkedList``: Some methods will be just like SinglyLinkedList (e.g., front methods) and some will be very different.
 - (12) ``src/main/java/edu/smith/cs/csc212/adtr/real/DoublyLinkedList.java``
 
 Then, work on ``ChunkyArrayList``: This data structure is very different from the others, because it uses GrowableList and FixedSizeList to make another.

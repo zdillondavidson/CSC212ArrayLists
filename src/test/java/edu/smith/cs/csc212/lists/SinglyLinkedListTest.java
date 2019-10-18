@@ -127,17 +127,22 @@ public class SinglyLinkedListTest {
 
 	@Test
 	public void testAddFrontFull() {
+		final int N = GrowableList.START_SIZE * 5;
 		ListADT<Integer> items1 = makeEmptyList();
-		for (int i = 0; i < GrowableList.START_SIZE * 5; i++) {
+		for (int i = 0; i < N; i++) {
 			items1.addBack((i + 1) * 3);
 			Assert.assertEquals(i + 1, items1.size());
 			Assert.assertEquals((i + 1) * 3, (int) items1.getBack());
 		}
 		ListADT<Integer> items2 = makeEmptyList();
+		int found = 0;
 		while (!items1.isEmpty()) {
 			items2.addFront(items1.removeBack());
+			if (found++ > N) {
+				throw new AssertionError("Something wrong with isEmpty, I think.");
+			}
 		}
-		for (int i = 0; i < GrowableList.START_SIZE * 5; i++) {
+		for (int i = 0; i < N; i++) {
 			Assert.assertEquals((i + 1) * 3, (int) items2.getIndex(i));
 		}
 	}
@@ -154,24 +159,30 @@ public class SinglyLinkedListTest {
 
 	@Test
 	public void testAddIndexMany() {
-		ListADT<Integer> items1 = makeEmptyList();
-		for (int i = 0; i < GrowableList.START_SIZE * 5; i++) {
-			items1.addBack((i + 1) * 3);
-			Assert.assertEquals(i + 1, items1.size());
-			Assert.assertEquals((i + 1) * 3, (int) items1.getBack());
-		}
+		final int N = GrowableList.START_SIZE * 5;
 
+		ListADT<Integer> items1 = makeEmptyList();
+		for (int i=0; i<N; i++) {
+			items1.addBack((i+1)*3);
+			Assert.assertEquals(i+1, items1.size());
+			Assert.assertEquals((i+1)*3, (int) items1.getBack()); 
+		}
+		
 		Random rand = new Random(13);
 		ListADT<Integer> items2 = makeEmptyList();
-
+		
 		// If this test runs forever, make sure removeIndex actually removes things.
-		while (!items1.isEmpty()) {
+		int limit = 0;
+		while(!items1.isEmpty()) {
 			int value = items1.removeIndex(rand.nextInt(items1.size()));
 			insertSorted(items2, value);
+			if (limit++ > N) {
+				throw new AssertionError("Something wrong with isEmpty, I think...?");
+			}
 		}
-
-		for (int i = 0; i < GrowableList.START_SIZE * 5; i++) {
-			Assert.assertEquals((i + 1) * 3, (int) items2.getIndex(i));
+		
+		for (int i=0; i<N; i++) {
+			Assert.assertEquals((i+1)*3, (int) items2.getIndex(i)); 
 		}
 	}
 

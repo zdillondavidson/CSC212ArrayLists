@@ -3,7 +3,11 @@ List Data Structures via Testing
 
 ### ListADT Methods to implement
 
-[Online Javadoc](https://javadoc.jitpack.io/com/github/jjfiv/CSC212ADT/1.1/javadoc/index.html)
+Note: ``ListADT`` and friends are not actually in this repository.
+- You can browse the [online Javadoc](https://javadoc.jitpack.io/com/github/jjfiv/CSC212ADT/1.1/javadoc/index.html).
+- You can directly [import the code](https://github.com/jjfiv/CSC212ADT) if you want.
+
+The most important portions of the interface are:
 
 ```java
 public abstract class ListADT<T> ... {
@@ -67,18 +71,31 @@ There are TODOErr methods in:
 Start with ``FixedSizeList``.
 - (6) ``src/main/java/edu/smith/cs/csc212/adtr/real/FixedSizeList.java``
 - The challenges here are removeIndex (need to slide elements to the left) and addIndex (need to slide elements to the right).
+- The one we discussed in class is easier, start there.
 
 Then, work to complete ``GrowableList`` which is an ArrayList implementation based on ``FixedSizeList`` (literally most of the methods are exactly the same) but it needs a resizeArray method to be completed.
 - (4) ``src/main/java/edu/smith/cs/csc212/adtr/real/GrowableList.java``
+- Start with copying over methods from ``FixedSizeList`` which are exactly the same...
 
 Then, work on ``SinglyLinkedList``: This will be very hard if you do not draw pictures.
 - (9) ``src/main/java/edu/smith/cs/csc212/adtr/real/SinglyLinkedList.java``
+- Start with everything that has the word ``Front`` in it. 
+- ``getIndex`` and ``setIndex`` are a lot like ``size``.
+- ``Front`` is easier than ``Back`` which is easier than ``Index``.
+- ``get`` is easier than ``add`` which is easier than ``remove``, usually.
 
 Then, work on ``DoublyLinkedList``: Some methods will be just like SinglyLinkedList (e.g., front methods) and some will be very different.
 - (12) ``src/main/java/edu/smith/cs/csc212/adtr/real/DoublyLinkedList.java``
+- ``*Front`` and ``*Back`` have symmetry. 
+- Again, ``getIndex`` and ``setIndex`` are like size.
+- Do all the front/back methods before doing any index methods here.
 
 Then, work on ``ChunkyArrayList``: This data structure is very different from the others, because it uses GrowableList and FixedSizeList to make another.
 - (9) ``src/main/java/edu/smith/cs/csc212/adtr/real/ChunkyArrayList.java``
+- This is a totally different, challenge data structure. 
+- It doesn't have nodes. It doesn't use ``ArrayWrapper`` directly. It uses ``GrowableList`` and ``FixedSizeList``.
+- Don't let it have any empty "chunks" in the middle. 
+- When you delete the last item from a chunk, delete the rest of the chunk.
 
 
 

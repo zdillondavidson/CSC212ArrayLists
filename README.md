@@ -4,7 +4,7 @@ Array-based List Data Structures via Testing
 ### ListADT Methods to implement
 
 Note: ``ListADT`` and friends are not actually in this repository.
-- You can browse the [online Javadoc](https://javadoc.jitpack.io/com/github/jjfiv/CSC212ADT/1.1/javadoc/index.html).
+- You can browse the [online Javadoc](https://javadoc.jitpack.io/com/github/jjfiv/CSC212ADT/1.3/javadoc/index.html).
 - You can directly [import the code](https://github.com/jjfiv/CSC212ADT) if you want.
 
 The most important portions of the interface are:

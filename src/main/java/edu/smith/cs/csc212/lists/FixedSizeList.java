@@ -7,6 +7,7 @@ import me.jjfoley.adt.errors.TODOErr;
 
 /**
  * FixedSizeList is a List with a maximum size.
+ * 
  * @author jfoley
  *
  * @param <T>
@@ -23,6 +24,7 @@ public class FixedSizeList<T> extends ListADT<T> {
 
 	/**
 	 * Construct a new FixedSizeList with a given maximum size.
+	 * 
 	 * @param maximumSize - the size of the array to use.
 	 */
 	public FixedSizeList(int maximumSize) {
@@ -56,18 +58,34 @@ public class FixedSizeList<T> extends ListADT<T> {
 
 	@Override
 	public T getFront() {
-		throw new TODOErr();
+		checkNotEmpty();
+		return this.array.getIndex(0);
 	}
 
 	@Override
 	public T getBack() {
-		throw new TODOErr();
+		checkNotEmpty();
+		return this.array.getIndex(this.fill - 1);
 	}
 
 	@Override
 	public void addIndex(int index, T value) {
 		// slide to the right
-		throw new TODOErr();
+
+		// check if space to add
+		if (fill < array.size()) {
+			fill++;
+		} else {
+			throw new RanOutOfSpaceError();
+		}
+
+		// slide to the right
+		for (int i = fill - 1; i > index; i--) {
+			this.array.setIndex(i, array.getIndex(i - 1));
+		}
+		// insert item to add
+		this.array.setIndex(index, value);
+
 	}
 
 	@Override
@@ -87,12 +105,26 @@ public class FixedSizeList<T> extends ListADT<T> {
 	@Override
 	public T removeIndex(int index) {
 		// slide to the left
-		throw new TODOErr();
+		checkNotEmpty();
+
+		// grab and hold the thing to delete
+		T removed = this.getIndex(index);
+		fill--;
+
+		// Slide to the left
+		for (int i = index; i < fill; i++) {
+			this.array.setIndex(i, array.getIndex(i + 1));
+		}
+
+		// erase the duplicate, last item
+		this.array.setIndex(fill, null);
+		return removed;
 	}
 
 	@Override
 	public T removeBack() {
-		throw new TODOErr();
+		checkNotEmpty();
+		return removeIndex(this.fill - 1);
 	}
 
 	@Override

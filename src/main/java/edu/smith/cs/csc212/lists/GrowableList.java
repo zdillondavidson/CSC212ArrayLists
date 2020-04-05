@@ -2,6 +2,8 @@ package edu.smith.cs.csc212.lists;
 
 import me.jjfoley.adt.ArrayWrapper;
 import me.jjfoley.adt.ListADT;
+import me.jjfoley.adt.errors.BadIndexError;
+import me.jjfoley.adt.errors.RanOutOfSpaceError;
 import me.jjfoley.adt.errors.TODOErr;
 
 /**
@@ -15,8 +17,7 @@ import me.jjfoley.adt.errors.TODOErr;
  */
 public class GrowableList<T> extends ListADT<T> {
 	/**
-	 * How big should the initial list be?
-	 * This is not private for use in tests.
+	 * How big should the initial list be? This is not private for use in tests.
 	 */
 	static final int START_SIZE = 10;
 	/**
@@ -51,7 +52,20 @@ public class GrowableList<T> extends ListADT<T> {
 	@Override
 	public T removeIndex(int index) {
 		// slide to the left
-		throw new TODOErr();
+		checkNotEmpty();
+
+		// grab and hold the thing to delete
+		T removed = this.getIndex(index);
+		fill--;
+
+		// Slide to the left
+		for (int i = index; i < fill; i++) {
+			this.array.setIndex(i, array.getIndex(i + 1));
+		}
+
+		// erase the duplicate, last item
+		this.array.setIndex(fill, null);
+		return removed;
 	}
 
 	@Override
@@ -71,14 +85,36 @@ public class GrowableList<T> extends ListADT<T> {
 	 * This private method is called when we need to make room in our GrowableList.
 	 */
 	private void resizeArray() {
-		// TODO: use this where necessary (already called in addBack!)
-		throw new TODOErr();
+		checkNotEmpty();
+
+		ArrayWrapper<T> bigger = new ArrayWrapper<>(this.array.size() * 2);
+		for (int i = 0; i < this.array.size(); i++) {
+			bigger.setIndex(i, this.array.getIndex(i));
+		}
+		this.array = bigger;
 	}
 
 	@Override
 	public void addIndex(int index, T item) {
 		// slide to the right
-		throw new TODOErr();
+		if (index < 0 || index > this.size()) {
+			throw new BadIndexError(index);
+		}
+
+		// check if space to add
+		if (fill < array.size()) {
+			fill++;
+		} else {
+			this.resizeArray();
+			fill = array.size() - 1;
+		}
+
+		// slide to the right
+		for (int i = fill - 1; i > index; i--) {
+			this.array.setIndex(i, array.getIndex(i - 1));
+		}
+		// insert item to add
+		this.array.setIndex(index, item);
 	}
 
 	@Override
